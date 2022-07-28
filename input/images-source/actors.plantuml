@@ -1,0 +1,15 @@
+@startuml
+title: overall actor interface 
+agent "Any App"  as App 
+agent "Electronic Health Record" as EHR
+agent "Access Control Decision" as ACD
+agent "Access Control Enforcement" as ACE 
+artifact "Consent Repository" as Consents [[consent.html]]
+artifact "Security Labeling Service" as SLS [[sls.html]]
+App -left--> ACD #line.dashed : "[1] check authorization"
+ACD -down--> Consents : "[2] any relevant consents" 
+App -down--> EHR : "[3] get data w/ token"
+EHR -left--> SLS : "[*] data tagging"
+EHR -up--> ACE : "[4] given tagged data, enforce token"
+ACE -up--> App : "[5] deliver authorized data"
+@enduml

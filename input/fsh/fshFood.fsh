@@ -88,10 +88,48 @@ Usage: #example
 // after all, that is his name too
 * gender = #male
 
+Instance: ex-son2
+InstanceOf: RelatedPerson
+Title: "Son2 - Related Person"
+Description: "Son2 of the Patient authorized by a Consent"
+Usage: #example
+* meta.security = http://terminology.hl7.org/CodeSystem/v3-ActReason#HTEST
+* active = true
+* patient = Reference(Patient/ex-patient)
+* relationship = 	http://terminology.hl7.org/CodeSystem/v3-RoleCode#SON "natural son"
+* name[+].use = #official
+* name[=].family = "Schmidt"
+* name[=].given[+] = "John"
+* name[=].given[+] = "Jacob"
+* name[=].given[+] = "Jingleheimer"
+// after all, that is his name too
+* gender = #male
 
-Instance: ex-consent
+
+Instance: ex-consent-treat
 InstanceOf: Consent
-Title: "Simple Consent example"
+Title: "Consent for treatment example"
+Description: "Consent for purposes of use involved in treatment: Treatment/Payment/Operations"
+Usage: #example
+* meta.security = http://terminology.hl7.org/CodeSystem/v3-ActReason#HTEST
+* status = #active
+* scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy
+* category[+] = http://loinc.org#59284-0 "Consent"
+* patient = Reference(Patient/ex-patient)
+* dateTime = "2022-06-13"
+* performer = Reference(Patient/ex-patient)
+* organization = Reference(Organization/ex-organization)
+* sourceReference = Reference(DocumentReference/ex-documentreference)
+* policy.uri = "http://example.org/policies/basePrivacyConsentPolicy.xacml"
+* provision.type = #permit
+* provision.purpose[+] = http://terminology.hl7.org/CodeSystem/v3-ActReason#TREAT
+* provision.purpose[+] = http://terminology.hl7.org/CodeSystem/v3-ActReason#HPAYMT
+* provision.purpose[+] = http://terminology.hl7.org/CodeSystem/v3-ActReason#HOPERAT
+
+
+Instance: ex-consent-son
+InstanceOf: Consent
+Title: "Consent for sons access example"
 Description: "Consent justifying RelatedPerson and authorizing access by that RelatedPerson"
 Usage: #example
 * meta.security = http://terminology.hl7.org/CodeSystem/v3-ActReason#HTEST
@@ -105,20 +143,24 @@ Usage: #example
 * organization = Reference(Organization/ex-organization)
 * sourceReference = Reference(DocumentReference/ex-documentreference)
 * policy.uri = "http://example.org/policies/basePrivacyConsentPolicy.xacml"
-* provision.type = #permit
-* provision.purpose[+] = http://terminology.hl7.org/CodeSystem/v3-ActReason#TREAT
-* provision.purpose[+] = http://terminology.hl7.org/CodeSystem/v3-ActReason#HPAYMT
-* provision.purpose[+] = http://terminology.hl7.org/CodeSystem/v3-ActReason#HOPERAT
+* provision.type = #deny
+* provision.purpose[+] = http://terminology.hl7.org/CodeSystem/v3-ActReason#FAMRQT
 * provision.provision[+].type = #permit
 * provision.provision[=].actor.reference = Reference(RelatedPerson/ex-son)
 * provision.provision[=].actor.role = http://terminology.hl7.org/CodeSystem/v3-RoleCode#DELEGATEE
 * provision.provision[=].purpose = http://terminology.hl7.org/CodeSystem/v3-ActReason#FAMRQT
-* provision.provision[=].securityLabel = 	http://terminology.hl7.org/CodeSystem/v3-ActCode#PSY
-* provision.provision[+].provision.type = #deny
+* provision.provision[=].securityLabel = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#N
+* provision.provision[+].type = #permit
 * provision.provision[=].actor.reference = Reference(RelatedPerson/ex-son)
 * provision.provision[=].actor.role = http://terminology.hl7.org/CodeSystem/v3-RoleCode#DELEGATEE
 * provision.provision[=].purpose = http://terminology.hl7.org/CodeSystem/v3-ActReason#FAMRQT
-* provision.provision[=].securityLabel = 	http://terminology.hl7.org/CodeSystem/v3-ActCode#ETH
+* provision.provision[=].securityLabel[+] = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#R
+* provision.provision[=].securityLabel[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#PSY
+* provision.provision[+].type = #permit
+* provision.provision[=].actor.reference = Reference(RelatedPerson/ex-son2)
+* provision.provision[=].actor.role = http://terminology.hl7.org/CodeSystem/v3-RoleCode#DELEGATEE
+* provision.provision[=].purpose = http://terminology.hl7.org/CodeSystem/v3-ActReason#FAMRQT
+* provision.provision[=].securityLabel = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#N
 
 
 
@@ -128,8 +170,14 @@ Usage: #example
 Instance: ex-ObservationAlcoholUse
 InstanceOf: Observation
 Title: "Observation - SH: Alcohol Use"
-Description: "This example Observation resource to represent alcohol use assessment in a patient summary."
-* meta.security = http://terminology.hl7.org/CodeSystem/v3-ActCode#ETH
+Description: """
+This example Observation resource to represent alcohol use assessment in a patient summary.
+
+- SLS assessed this as ETH
+- SLS added Restricted due to the ETH assessment
+"""
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#ETH
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#R
 * status = #final
 * code = http://loinc.org#74013-4
 * subject = Reference(Patient/ex-patient)
@@ -138,9 +186,15 @@ Description: "This example Observation resource to represent alcohol use assessm
 
 Instance:   ex-bloodSugarB-0
 InstanceOf: Observation
-Title: "Example of an MHV blood sugar R4 observation, minimal"
-Description:      "holding typical values"
+Title: "Example of an MHV blood sugar R4 observation"
+Description: """
+holding typical health values
+
+- SLS assessed this as not sensitvie
+- SLS added Normal due to not sensitive
+"""
 //* meta.security = http://terminology.hl7.org/CodeSystem/v3-ActReason#HTEST
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#N
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code = http://loinc.org#2339-0 "Glucose [Mass/volume] in Blood"
@@ -149,3 +203,30 @@ Description:      "holding typical values"
 * valueQuantity = 99 'mg/dL' 
 // no comments in this one as comments is only in DSTU2
 * note.text = "a bit low, no indicated method, no indicated eating"
+
+
+
+
+ValueSet: SLS-PSY
+Title: "clinical codes that indicate PSY"
+Description: """
+codes that when found in data would indicate the data is likely PSY related"
+
+- LOINC
+- SNOMED
+- RXnorm
+- etc
+"""
+*  http://loinc.org#74013-4
+
+ValueSet: SLS-ETH
+Title: "clinical codes that indicate ETH"
+Description: """
+codes that when found in data would indicate the data is likely ETH related
+
+- LOINC
+- SNOMED
+- RXnorm
+- etc
+"""
+

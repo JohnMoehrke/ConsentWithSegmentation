@@ -1,10 +1,14 @@
 @startuml
+title Consent for Family Requested purpose
 object "ex-patient : Patient" as pat [[Patient-ex-patient.html]]
 pat : name = JJJ Schmidt
 pat : birthDate = 1923-07-25
 object "ex-son: RelatedPerson" as rel [[RelatedPerson-ex-son.html]]
 rel : name = JJJ Schmidt
-rel -left--> pat : patient
+rel -> pat : patient
+object "ex-son2: RelatedPerson" as rel2 [[RelatedPerson-ex-son2.html]]
+rel2 : name = JJJ Schmidt
+rel2 -> pat : patient
 object "ex-documentreference :\nDocumentReference" as docref [[DocumentReference-ex-documentreference.html]]
 object ": Binary" as doc
 docref --> doc : content.attachment.url
@@ -21,21 +25,26 @@ consent -> pat : patient
 consent -> docref : source[x]
 object ": provision" as prov
 consent *--> prov
-prov : type = permit
-prov : who = Hospital Use
-prov : purpose = Treatment, Payment, and Operations
-object ": provision.provision[1]" as prov2
+prov : type = deny
+prov : purpose = Family requested\n\t(FAMRQT)
+object ": provision.provision[1]" as prov1
+prov *--> prov1
+prov1 : type = permit
+prov1 -down--> rel : son
+prov1 : purpose = Family requested\n\t(FAMRQT)
+prov1 : securityLabel = Normal data
+object ": provision.provision[2]" as prov2
 prov *--> prov2
 prov2 : type = permit
-prov2 -down--> rel : who
+prov2 -down--> rel : son
 prov2 : purpose = Family requested\n\t(FAMRQT)
-prov2 : securityLabel = PSY
-object ": provision.provision[2]" as prov3
+prov2 : securityLabel = Psychiatry data\n\tPSY
+object ": provision.provision[3]" as prov3
 prov *--> prov3
-prov3 : type = deny
-prov3 -down--> rel : who
+prov3 : type = permit
+prov3 -down--> rel2 : son2
 prov3 : purpose = Family requested\n\t(FAMRQT)
-prov3 : securityLabel = ETH
+prov3 : securityLabel = Normal data
 }
 
 @enduml

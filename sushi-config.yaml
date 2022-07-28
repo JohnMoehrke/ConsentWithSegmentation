@@ -27,7 +27,7 @@ license: CC-BY-4.0
 jurisdiction: 'http://unstats.un.org/unsd/methods/m49/m49.htm#001'
 extension: 
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
-    valueCode: trial-use
+    valueCode: draft
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
     valueInteger: 0
 #  - url: http://hl7.org/fhir/StructureDefinition/fmm-definition
@@ -54,14 +54,19 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
+  Consents: consent.html
+  SLS: sls.html
   Artifacts: artifacts.html
 
 pages:
   index.md:
-    extension: 
-      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
-        valueCode: normative
     title: specification
+    generation: markdown
+  consent.md:
+    title: Consent Profiling
+    generation: markdown
+  sls.md:
+    title: Security Labeling Service
     generation: markdown
 
     

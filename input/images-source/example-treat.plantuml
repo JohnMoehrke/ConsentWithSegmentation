@@ -1,0 +1,26 @@
+@startuml
+object "ex-patient : Patient" as pat [[Patient-ex-patient.html]]
+pat : name = JJJ Schmidt
+pat : birthDate = 1923-07-25
+object "ex-documentreference :\nDocumentReference" as docref [[DocumentReference-ex-documentreference.html]]
+object ": Binary" as doc
+docref --> doc : content.attachment.url
+doc : // Consent signed\nby the patient
+
+package consent {
+object "ex-consent-treat: Consent" as consent [[Consent-ex-consent-treat.html]]
+
+
+consent : status = active
+consent : dateTime = 2022-06-13
+consent : scope = patient-privacy
+consent -> pat : patient
+consent -> docref : source[x]
+object ": provision" as prov
+consent *--> prov
+prov : type = permit
+prov : who = Hospital Use
+prov : purpose = Treatment, Payment, and Operations
+}
+
+@enduml
