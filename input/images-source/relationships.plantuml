@@ -1,0 +1,17 @@
+@startuml
+
+:patient: -> (Consent) : patient specific rules
+
+:user: -> (UserApp)
+(UserApp) -> (AccessControl): Is any access allowed?
+Note right of (AccessControl): Org policies & Consents
+(AccessControl) --> (Consent): Get patient specific rules
+(UserApp) <-- (AccessControl): Yes, but only non sensitive
+
+(UserApp) -> (EHR) : Request data given\nAccessControl token
+(SLS) <-- (EHR) : request to tag search results
+(AccessEnforcement) <-- (SLS): tagged data
+(UserApp) <-- (AccessEnforcement): allowed data
+
+
+@enduml
