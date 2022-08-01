@@ -54,6 +54,9 @@ One way to understand a very basic SLS is that it looks for clinical codes in th
 
 - [Set of codes that indicate ETH](ValueSet-SLS-ETH.html)
 - [Set of codes that indicate PSY](ValueSet-SLS-PSY.html)
+- [Set of codes that indicate SEX](ValueSet-SLS-SEX.html)
+- [Set of codes that indicate HIV](ValueSet-SLS-HIV.html)
+
 
 ## Example Data with tags
 
