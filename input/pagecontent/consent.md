@@ -47,7 +47,7 @@ This is recorded using two different Consents for the distinct purpose of use. T
 This is the consent for the family requested access authorization purpose of use.
 
 <div>
-{%include example-treat.svg%}
+{%include example-son.svg%}
 </div>
 <br clear="all">
 
