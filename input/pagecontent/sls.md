@@ -52,10 +52,10 @@ This solution does not require that the EHR database be updated to support taggi
 
 One way to understand a very basic SLS is that it looks for clinical codes in the data. It might do this using ValueSets, but likely would need to do this in a more performing way. 
 
-- [Set of codes that indicate ETH](ValueSet-SLS-ETH.html)
-- [Set of codes that indicate PSY](ValueSet-SLS-PSY.html)
-- [Set of codes that indicate SEX](ValueSet-SLS-SEX.html)
-- [Set of codes that indicate HIV](ValueSet-SLS-HIV.html)
+- [Set of codes that indicate ETH](ValueSet-SlsSensitiveETH.html)
+- [Set of codes that indicate PSY](ValueSet-SlsSensitivePSY.html)
+- [Set of codes that indicate SEX](ValueSet-SlsSensitiveSEX.html)
+- [Set of codes that indicate HIV](ValueSet-SlsSensitiveHIV.html)
 
 
 ## Example Data with tags
