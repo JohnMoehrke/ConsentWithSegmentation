@@ -32,6 +32,9 @@ extension:
     valueInteger: 0
 #  - url: http://hl7.org/fhir/StructureDefinition/fmm-definition
 #    valueUrl: http://example.com/maturity.html
+dependencies:
+  us.nlm.vsac:
+    version: 0.7.0
 
 parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
   path-resource:
@@ -69,15 +72,6 @@ pages:
     title: Security Labeling Service
     generation: markdown
 
-# additional examples that need descriptions
-resources:
-  ValueSet/2.16.840.1.113762.1.4.1142.49:
-    name: SAMSHA-C2S-49
-    description: C2S Sexuality and reproductive health information sensitivity - ICD9
-    exampleBoolean: false
-  ValueSet/2.16.840.1.113762.1.4.1142.50:
-    name: SAMSHA-C2S-50
-    description: C2S Sexuality and reproductive health information sensitivity - RxNorm
-    exampleBoolean: false
+
 
     

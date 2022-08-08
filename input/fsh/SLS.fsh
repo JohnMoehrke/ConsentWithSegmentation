@@ -107,8 +107,8 @@ SEX - sexuality and reproductive health information
 should this also include SDV (Sexual assault, abuse or domestic violence), PREGNANT (pregnancy), STD (sexually transmitted disease)
 """
 // SAMSHA C2S Sexuality and reproductive health information sensitivity
-* codes from valueset http://johnmoehrke.github.io/ConsentWithSegmentation/ValueSet/2.16.840.1.113762.1.4.1142.49
-* codes from valueset http://johnmoehrke.github.io/ConsentWithSegmentation/ValueSet/2.16.840.1.113762.1.4.1142.50
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.49
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.50
 
 
 ValueSet: SlsSensitiveHIV

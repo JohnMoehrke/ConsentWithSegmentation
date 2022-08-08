@@ -15,7 +15,7 @@ docref --> doc : content.attachment.url
 doc : // Consent signed\nby the patient
 
 package consent {
-object "ex-consent: Consent" as consent [[Consent-ex-consent.html]]
+object "ex-consent: Consent" as consent [[Consent-ex-consent-son.html]]
 
 
 consent : status = active
