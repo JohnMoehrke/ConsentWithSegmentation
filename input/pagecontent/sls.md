@@ -5,7 +5,7 @@ The various clinical Resources in FHIR are very complex and highly varable. Alth
 
 The classification of data into sensitive topcs is the role of the Security Labeling Service (SLS). The SLS inspects the data, and may use the context of the data to identify the sensitivity classification. It is expected that most data will not be considered sensitive, aka "Normal".
 
-## Data tagging Considerations
+### Data tagging Considerations
 
 Some data are directl and clearly in a sensitive category. But there can be indirect relationships, such as three medications prescribed together are a clear indication of a sensitive category but are  not individually.  
 
@@ -13,11 +13,11 @@ Some data may also not be sensitive in the coding, but rather sensitive in the n
 
 Some approaches use well-defined ValueSets, where others use a list of words. The list of words can be search accross the data without regard for the data structure, which has the benefit of not needing to have the SLS data schema aware. The list of words can be codes, such as snomed numeric codes.
 
-## Architecture approaches to data tagging
+### Architecture approaches to data tagging
 
 When the SLS is executed is a systems design decision. General alternatives are:
 
-### Pre Tagging data
+#### Pre Tagging data
 Tagging the data as it is created, updated, or imported. 
 
 
@@ -36,7 +36,7 @@ Which has the advantage that the access to the data does not need to assess the 
 
 This solution is likely to be more performant on use of data, but may not have as accurate sensitivity tags due to the dynamic nature of policies around sensitivty, and dynamic nature of data relationships. This solution also requires that the EHR database support data tags.
 
-### Use time tagging data
+#### Use time tagging data
 
 Alternative is that the data are temporarly tagged prior to use, thus the sensitivity is freshly determined and used only for that access enforcement
 
@@ -48,7 +48,7 @@ Alternative is that the data are temporarly tagged prior to use, thus the sensit
 
 This solution does not require that the EHR database be updated to support tagging of data, but may incure a peformance impact on data use.
 
-## Example ValueSets
+### Example ValueSets
 
 One way to understand a very basic SLS is that it looks for clinical codes in the data. It might do this using ValueSets, but likely would need to do this in a more performing way. 
 
@@ -58,7 +58,7 @@ One way to understand a very basic SLS is that it looks for clinical codes in th
 - [Set of codes that indicate HIV](ValueSet-SlsSensitiveHIV.html)
 
 
-## Example Data with tags
+### Example Data with tags
 
 - [Observation of Alcohol Use](Observation-ex-ObservationAlcoholUse.html) marked with `ETH`
 - [Observation of a Blood Sugar](Observation-ex-bloodSugarB-0.html) not marked sensitive

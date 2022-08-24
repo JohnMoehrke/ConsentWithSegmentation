@@ -19,11 +19,11 @@ The Consent then would need to be profiled. The main difference from the FHIR co
 
 In the case where the court or some actor that is not the Patient is compelling the RelatedPerson relationship, then the Consent.performer would indicate that the Patient is not the one granting the relationship, but rather the guardian or the courts.
 
-## using Consent to enable access control
+### using Consent to enable access control
 
 One advantage of using a Consent resource as defined here is that there would be a natural set of provisions in a Consent that would be processable by an Access Control engine that understands Consent. This Access Control engine would not need to understand the medical meaning of the data, it just looks at the `.meta.security` for the specific security tags. 
 
-## Workflow of capturing the Consent
+### Workflow of capturing the Consent
 
 The Consent resource is not intended to be used to drive the workflow of the capturing of the Consent. The Consent is following the "Event Pattern", which means that it is the output of an event (the Consent Ceremony).  The workflow that preceded this event would need to be managed by other resources in the [Request pattern](http://build.fhir.org/workflow.html#respatterns)
 
@@ -33,7 +33,7 @@ For example a use-case where the Patient may record their Privacy Preferrences. 
 
 Note we have tried to keep workflow states out of the Consent.status; but some states have gotten in that I don't think are proper. But at this time we allow them in until there is a more formal task flow.
 
-## Examples
+### Examples
 
 Here is an example of a geractric patient giving consent for treatment and also authorizing his sons some access. In this case one son is just authorized for non-senstive (normal) data, while the other son is authorized to also see psychotherpy data; neither sons are authorized to see other sensitive topics such as alcholoh abuse.
 
