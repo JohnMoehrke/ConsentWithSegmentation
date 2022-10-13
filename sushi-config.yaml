@@ -30,8 +30,6 @@ extension:
     valueCode: draft
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
     valueInteger: 0
-#  - url: http://hl7.org/fhir/StructureDefinition/fmm-definition
-#    valueUrl: http://example.com/maturity.html
 dependencies:
   us.nlm.vsac:
     version: 0.7.0
@@ -51,6 +49,7 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
   apply-jurisdiction: 'true'
   apply-publisher: 'true'
   apply-version: 'true'
+  fmm-definition: maturity.html
 
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │  To use a provided input/includes/menu.xml file, delete the "menu" property below.             │
@@ -59,6 +58,7 @@ menu:
   Home: index.html
   Consents: consent.html
   SLS: sls.html
+  Maturity: maturity.html
   Artifacts: artifacts.html
 
 pages:
@@ -71,7 +71,9 @@ pages:
   sls.md:
     title: Security Labeling Service
     generation: markdown
-
+  maturity.md:
+    title: Redefined FMM
+    generation: markdown
 
 
     
