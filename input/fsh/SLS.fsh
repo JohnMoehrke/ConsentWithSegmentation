@@ -3,6 +3,12 @@
 // SAMSHA big valueset - https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1142.58/expansion/Latest
 // http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.1
 // my personal NLM apiKey=10b69906-5814-406b-83bc-ed27260bda38
+//
+// Note that 58 is the overall grouper
+// Note there is no 31, 37, 61, 62, 63, 64
+// Note that tobacco is not included as not considered a protected sensitvive topic: 51, 52, 53, 54
+// Note additional beyond 58: 65, 67
+
 
 
 
@@ -27,6 +33,7 @@ PSY - psychiatry disorder information sensitivity
 //*  http://loinc.org#74013-4
 
 // SAMSHA C2S Mental Health Disorders
+* ^experimental = false
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.32 // ICD10CM
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.33 // ICD9CM
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.34 // LOINC
@@ -96,6 +103,7 @@ ETH - substance abuse information sensitivity (alcohol or drug-abuse information
 * **SAMSHA Test C2S Alcohol Use Disorders**
   * ValueSet 2.16.840.1.113762.1.4.1142.65 // SNOMED-CT
 """
+* ^experimental = false
 // SAMSHA  C2S Alcohol Use Disorders
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.1 // SNOMEDCD
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.2 // ICD9CM
@@ -160,6 +168,7 @@ SEX - sexuality and reproductive health information
   * ValueSet 2.16.840.1.113762.1.4.1142.49 // ICD9CM
   * ValueSet 2.16.840.1.113762.1.4.1142.50 // RXNORM
 """
+* ^experimental = false
 // SAMSHA C2S Sexuality and reproductive health information sensitivity
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.49 // ICD9CM
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.50 // RXNORM
@@ -180,6 +189,7 @@ HIV/AIDS information
 * **SAMSHA Test C2S HIV/AIDS Information Sensitivity**
   * ValueSet 2.16.840.1.113762.1.4.1142.67 // SNOMEDCD
 """
+* ^experimental = false
 // SAMSHA C2S HIV/AIDS Information
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.23 // HCPCS
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.24 // ICD9CM

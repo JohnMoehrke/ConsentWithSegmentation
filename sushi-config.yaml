@@ -63,6 +63,7 @@ menu:
   Informative: informative.html
   Artifacts: artifacts.html
 
+# marking pages as informative, causes all unmarked to be marked informative. So if you mark one page, then you need to mark them all. https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/structuredefinition-standards-status
 pages:
   index.md:
     title: specification
