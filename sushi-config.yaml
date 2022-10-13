@@ -50,6 +50,7 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
   apply-publisher: 'true'
   apply-version: 'true'
   fmm-definition: maturity.html
+  propagate-status: 'true'
 
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │  To use a provided input/includes/menu.xml file, delete the "menu" property below.             │
@@ -59,21 +60,42 @@ menu:
   Consents: consent.html
   SLS: sls.html
   Maturity: maturity.html
+  Informative: informative.html
   Artifacts: artifacts.html
 
 pages:
   index.md:
     title: specification
     generation: markdown
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: normative
   consent.md:
     title: Consent Profiling
     generation: markdown
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: normative
   sls.md:
     title: Security Labeling Service
     generation: markdown
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: normative
   maturity.md:
     title: Redefined FMM
     generation: markdown
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: normative
+  informative.md:
+    title: Informative stuff
+    generation: markdown
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+
+
 
 
     
