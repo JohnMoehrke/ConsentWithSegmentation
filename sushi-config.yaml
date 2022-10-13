@@ -2,9 +2,9 @@
 # │  The properties below are used to create the ImplementationGuide resource. For a list of       │
 # │  supported properties, see: https://fshschool.org/docs/sushi/configuration/                    │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: johnmoehrke.consentwithsegmentation.example
+id: johnmoehrke.consentwithsegmentation
 canonical: http://johnmoehrke.github.io/ConsentWithSegmentation
-name: JohnMoehrkeConsentWithSegmentation
+name: JohnMoehrke_ConsentWithSegmentation
 title: "JohnMoehrke Consent with Segmented data"
 description: This Implementation Guide addresses privacy Consent resource with segmented data.
 status: draft
