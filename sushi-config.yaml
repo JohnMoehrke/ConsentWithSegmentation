@@ -6,9 +6,9 @@ id: johnmoehrke.consentwithsegmentation
 canonical: http://johnmoehrke.github.io/ConsentWithSegmentation
 name: JohnMoehrke_ConsentWithSegmentation
 title: "JohnMoehrke Consent with Segmented data"
-description: This Implementation Guide addresses privacy Consent resource with segmented data.
+description: "This Implementation Guide addresses privacy Consent resource with segmented data."
 status: draft
-version: 0.1.0
+version: 0.1.0-current
 fhirVersion: 4.3.0
 #fhirVersion: 4.3.0-snapshot1
 #fhirVersion: 4.0.1
@@ -31,8 +31,7 @@ extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
     valueInteger: 0
 dependencies:
-  us.nlm.vsac:
-    version: 0.7.0
+  us.nlm.vsac: 0.8.0
 
 parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
   path-resource:
