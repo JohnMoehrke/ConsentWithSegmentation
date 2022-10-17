@@ -67,15 +67,27 @@ pages:
   index.md:
     title: specification
     generation: markdown
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
   consent.md:
     title: Consent Profiling
     generation: markdown
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
   sls.md:
     title: Security Labeling Service
     generation: markdown
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
   maturity.md:
     title: Redefined FMM
     generation: markdown
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
   informative.md:
     title: Informative stuff
     generation: markdown
