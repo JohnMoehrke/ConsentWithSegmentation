@@ -63,3 +63,11 @@ One way to understand a very basic SLS is that it looks for clinical codes in th
 - [Observation of Alcohol Use](Observation-ex-ObservationAlcoholUse.html) marked with `ETH`
 - [Observation of a Blood Sugar](Observation-ex-bloodSugarB-0.html) not marked sensitive
 
+### Dependency Table
+
+{% include dependency-table.xhtml %}
+
+### Globals Table
+
+{% include globals-table.xhtml %}
+

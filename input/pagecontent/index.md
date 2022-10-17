@@ -41,4 +41,12 @@ You can also download:
 
 The source code for this Implementation Guide can be found on John Moehrke GitHub [https://github.com/JohnMoehrke/ConsentWithSegmentation](https://github.com/JohnMoehrke/ConsentWithSegmentation).
 
+#### Cross Version Analysis
+
+{% include cross-version-analysis.xhtml %}
+
+### IP Statements
+
+{% include ip-statements.xhtml %}
+
 
