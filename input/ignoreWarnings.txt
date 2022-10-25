@@ -1,4 +1,2 @@
 == Suppressed Messages ==
 
-# the VSAC / SAMSA valuesets are old
-Error from server: Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/731000124108/version/20220301 (known versions = http://snomed.info/sct/11000172109/version/20220315,http://snomed.info/sct/900000000000207008/version/20210731,http://snomed.info/sct/900000000000207008/version/20200731,http://snomed.info/sct/11000146104/version/20210930,http://snomed.info/sct/731000124108/version/20220901,http://snomed.info/sct/554471000005108/version/20210930,http://snomed.info/sct/45991000052106/version/20210531,http://snomed.info/sct/20611000087101/version/20220331,http://snomed.info/sct/32506021000036107/version/20220731,http://snomed.info/sct/900000000000207008/version/20220731,http://snomed.info/sct/900000000000207008/version/20190731)
