@@ -9,8 +9,8 @@ title: "JohnMoehrke Consent with Segmented data"
 description: "This Implementation Guide addresses privacy Consent resource with segmented data."
 status: draft
 version: 0.1.0-current
-#fhirVersion: 4.3.0
-fhirVersion: 4.0.1
+fhirVersion: 4.3.0
+#fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: ci-build
 publisher:

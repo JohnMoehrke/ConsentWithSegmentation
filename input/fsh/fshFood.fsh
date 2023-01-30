@@ -8,6 +8,28 @@ Usage: #example
 * active = true
 * name = "somewhere org"
 
+Instance:   cccccccc-2222-0000-0000-000000000010
+InstanceOf: Provenance
+Title: "history entry Org 1"
+Usage: #inline
+* target = Reference(Organization/ex-organization)
+* recorded = "2022-07-27T13:00:00.0000Z"
+* occurredDateTime = "2022-07-27"
+* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
+* reason.text = "Initial example"
+* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
+* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
+* agent.who.display = "John Moehrke"
+
+
+Instance: bundle-ex-organization-history
+InstanceOf: Bundle
+Title: "History if ex-organiation changes"
+Usage: #definition
+* type = #collection
+* entry[+].fullUrl = "urn:uuid:cccccccc-2222-0000-0000-000000000010"
+* entry[=].resource = cccccccc-2222-0000-0000-000000000010
+
 
 
 Instance: ex-doctor
@@ -106,8 +128,41 @@ Usage: #example
 * gender = #male
 
 
+Profile: ConsentTreat
+Parent: Consent
+Title: "Consent to treat"
+Description: "Some useful"
+* status = #active
+* scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy
+* category = http://loinc.org#59284-0 "Consent"
+* patient 1..1
+
+
+Instance:   cccccccc-2222-0000-0000-000000000011
+InstanceOf: Provenance
+Title: "history entry ConsentTreat profile 1"
+Usage: #inline
+* target = Reference(StructureDefinition/ConsentTreat)
+* recorded = "2022-07-27T13:00:00.0000Z"
+* occurredDateTime = "2022-07-27"
+* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
+* reason.text = "Initial example"
+* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
+* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
+* agent.who.display = "John Moehrke"
+
+
+Instance: bundle-ConsentTreat-history
+InstanceOf: Bundle
+Title: "History if ConsentTreat profile changes"
+Usage: #definition
+* type = #collection
+* entry[+].fullUrl = "urn:uuid:cccccccc-2222-0000-0000-000000000011"
+* entry[=].resource = cccccccc-2222-0000-0000-000000000011
+
+
 Instance: ex-consent-treat
-InstanceOf: Consent
+InstanceOf: ConsentTreat
 Title: "Consent for treatment example"
 Description: "Consent for purposes of use involved in treatment: Treatment/Payment/Operations"
 Usage: #example
