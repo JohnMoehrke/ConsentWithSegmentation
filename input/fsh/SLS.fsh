@@ -55,9 +55,10 @@ Usage: #inline
 * agent.who.display = "John Moehrke"
 
 
-Instance: SlsSensitivePSY-history
+Instance: bundle-SlsSensitivePSY-history
 InstanceOf: Bundle
 Title: "History if SLS changes"
+Usage: #definition
 * type = #collection
 * entry[+].fullUrl = "urn:uuid:cccccccc-2222-0000-0000-000000000001"
 * entry[=].resource = cccccccc-2222-0000-0000-000000000001
