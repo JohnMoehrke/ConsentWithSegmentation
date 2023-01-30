@@ -41,6 +41,27 @@ PSY - psychiatry disorder information sensitivity
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.36 // SNOMED-CT
 
 
+Instance:   cccccccc-2222-0000-0000-000000000001
+InstanceOf: Provenance
+Title: "history entry 1"
+Usage: #inline
+* target = Reference(ValueSet/SlsSensitivePSY)
+* recorded = "2023-01-30T13:00:00.0000Z"
+* occurredDateTime = "2023-01-30"
+* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
+* reason.text = "For fun"
+* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
+* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
+* agent.who.display = "John Moehrke"
+
+
+Instance: SlsSensitivePSY-history
+InstanceOf: Bundle
+Title: "History if SLS changes"
+* type = #collection
+* entry[+].fullUrl = "urn:uuid:cccccccc-2222-0000-0000-000000000001"
+* entry[=].resource = cccccccc-2222-0000-0000-000000000001
+
 
 
 ValueSet: SlsSensitiveETH
