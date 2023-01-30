@@ -22,7 +22,7 @@ Usage: #inline
 * agent.who.display = "John Moehrke"
 
 
-Instance: bundle-ex-organization-history
+Instance: ex-organization-history
 InstanceOf: Bundle
 Title: "History if ex-organiation changes"
 Usage: #definition
@@ -152,7 +152,7 @@ Usage: #inline
 * agent.who.display = "John Moehrke"
 
 
-Instance: bundle-ConsentTreat-history
+Instance: ConsentTreat-history
 InstanceOf: Bundle
 Title: "History if ConsentTreat profile changes"
 Usage: #definition

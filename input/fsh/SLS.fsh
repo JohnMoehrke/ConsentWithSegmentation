@@ -55,7 +55,7 @@ Usage: #inline
 * agent.who.display = "John Moehrke"
 
 
-Instance: bundle-SlsSensitivePSY-history
+Instance: SlsSensitivePSY-history
 InstanceOf: Bundle
 Title: "History if SLS changes"
 Usage: #definition
@@ -195,7 +195,7 @@ Usage: #inline
 * agent.who.display = "John Moehrke"
 
 
-Instance: bundle-SlsSensitiveETH-history
+Instance: SlsSensitiveETH-history
 InstanceOf: Bundle
 Title: "History if SLS changes"
 Usage: #definition
@@ -236,7 +236,7 @@ Usage: #inline
 * agent.who.display = "John Moehrke"
 
 
-Instance: bundle-SlsSensitiveSEX-history
+Instance: SlsSensitiveSEX-history
 InstanceOf: Bundle
 Title: "History if SLS changes"
 Usage: #definition
@@ -286,7 +286,7 @@ Usage: #inline
 * agent.who.display = "John Moehrke"
 
 
-Instance: bundle-SlsSensitiveHIV-history
+Instance: SlsSensitiveHIV-history
 InstanceOf: Bundle
 Title: "History if SLS changes"
 Usage: #definition
