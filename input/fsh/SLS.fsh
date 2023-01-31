@@ -10,6 +10,37 @@
 // Note additional beyond 58: 65, 67
 
 
+// history entries follow https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation#IGPublisherDocumentation-HistoryEntries
+
+Instance:   cccccccc-2222-0000-0000-000000000001
+InstanceOf: Provenance
+Title: "Initial creation of ValueSets PSY, ETH, SEX, and HIV"
+Usage: #inline
+* target[+] = Reference(ValueSet/SlsSensitivePSY)
+* target[+] = Reference(ValueSet/SlsSensitiveETH)
+* target[+] = Reference(ValueSet/SlsSensitiveSEX)
+* target[+] = Reference(ValueSet/SlsSensitiveHIV)
+* recorded = "2023-01-30T13:00:00.0000Z"
+* occurredDateTime = "2022-07-27"
+* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
+* reason.text = "Initial ValueSet as per the C2S layout"
+* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
+* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
+* agent.who.display = "John Moehrke"
+
+
+
+Instance: SlsSensitive-history
+InstanceOf: Bundle
+Title: "History if SLS changes"
+Usage: #definition
+* type = #collection
+* entry[+].fullUrl = "urn:uuid:cccccccc-2222-0000-0000-000000000001"
+* entry[=].resource = cccccccc-2222-0000-0000-000000000001
+
+
+
+
 
 
 
@@ -39,29 +70,6 @@ PSY - psychiatry disorder information sensitivity
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.34 // LOINC
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.35 // RXNORM
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.36 // SNOMED-CT
-
-
-Instance:   cccccccc-2222-0000-0000-000000000001
-InstanceOf: Provenance
-Title: "history entry PSY 1"
-Usage: #inline
-* target = Reference(ValueSet/SlsSensitivePSY)
-* recorded = "2022-07-27T13:00:00.0000Z"
-* occurredDateTime = "2022-07-27"
-* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
-* reason.text = "Initial ValueSet as per the C2S layout"
-* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
-* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
-* agent.who.display = "John Moehrke"
-
-
-Instance: SlsSensitivePSY-history
-InstanceOf: Bundle
-Title: "History if SLS changes"
-Usage: #definition
-* type = #collection
-* entry[+].fullUrl = "urn:uuid:cccccccc-2222-0000-0000-000000000001"
-* entry[=].resource = cccccccc-2222-0000-0000-000000000001
 
 
 
@@ -181,28 +189,6 @@ ETH - substance abuse information sensitivity (alcohol or drug-abuse information
 
 
 
-Instance:   cccccccc-2222-0000-0000-000000000002
-InstanceOf: Provenance
-Title: "history entry ETH 1"
-Usage: #inline
-* target = Reference(ValueSet/SlsSensitiveETH)
-* recorded = "2022-07-27T13:00:00.0000Z"
-* occurredDateTime = "2022-07-27"
-* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
-* reason.text = "Initial ValueSet as per the C2S layout"
-* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
-* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
-* agent.who.display = "John Moehrke"
-
-
-Instance: SlsSensitiveETH-history
-InstanceOf: Bundle
-Title: "History if SLS changes"
-Usage: #definition
-* type = #collection
-* entry[+].fullUrl = "urn:uuid:cccccccc-2222-0000-0000-000000000002"
-* entry[=].resource = cccccccc-2222-0000-0000-000000000002
-
 
 
 ValueSet: SlsSensitiveSEX
@@ -220,29 +206,6 @@ SEX - sexuality and reproductive health information
 // SAMSHA C2S Sexuality and reproductive health information sensitivity
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.49 // ICD9CM
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.50 // RXNORM
-
-
-Instance:   cccccccc-2222-0000-0000-000000000003
-InstanceOf: Provenance
-Title: "history entry SEX 1"
-Usage: #inline
-* target = Reference(ValueSet/SlsSensitiveSEX)
-* recorded = "2022-07-27T13:00:00.0000Z"
-* occurredDateTime = "2022-07-27"
-* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
-* reason.text = "Initial ValueSet as per the C2S layout"
-* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
-* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
-* agent.who.display = "John Moehrke"
-
-
-Instance: SlsSensitiveSEX-history
-InstanceOf: Bundle
-Title: "History if SLS changes"
-Usage: #definition
-* type = #collection
-* entry[+].fullUrl = "urn:uuid:cccccccc-2222-0000-0000-000000000003"
-* entry[=].resource = cccccccc-2222-0000-0000-000000000003
 
 
 
@@ -271,26 +234,4 @@ HIV/AIDS information
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.60 // CPT
 // SAMSHA Test C2S HIV/AIDS Information Sensitivity
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.67 // SNOMEDCD
-
-Instance:   cccccccc-2222-0000-0000-000000000004
-InstanceOf: Provenance
-Title: "history entry HIV 1"
-Usage: #inline
-* target = Reference(ValueSet/SlsSensitiveHIV)
-* recorded = "2022-07-27T13:00:00.0000Z"
-* occurredDateTime = "2022-07-27"
-* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
-* reason.text = "Initial ValueSet as per the C2S layout"
-* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
-* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
-* agent.who.display = "John Moehrke"
-
-
-Instance: SlsSensitiveHIV-history
-InstanceOf: Bundle
-Title: "History if SLS changes"
-Usage: #definition
-* type = #collection
-* entry[+].fullUrl = "urn:uuid:cccccccc-2222-0000-0000-000000000004"
-* entry[=].resource = cccccccc-2222-0000-0000-000000000004
 
