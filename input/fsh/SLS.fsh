@@ -12,10 +12,10 @@
 
 // history entries follow https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation#IGPublisherDocumentation-HistoryEntries
 
-Instance:   cccccccc-2222-0000-0000-000000000001
+Instance:   SlsSensitive-initial-history
 InstanceOf: Provenance
 Title: "Initial creation of ValueSets PSY, ETH, SEX, and HIV"
-Usage: #inline
+Usage: #definition
 * target[+] = Reference(ValueSet/SlsSensitivePSY)
 * target[+] = Reference(ValueSet/SlsSensitiveETH)
 * target[+] = Reference(ValueSet/SlsSensitiveSEX)
@@ -29,14 +29,6 @@ Usage: #inline
 * agent.who.display = "John Moehrke"
 
 
-
-Instance: SlsSensitive-history
-InstanceOf: Bundle
-Title: "History if SLS changes"
-Usage: #definition
-* type = #collection
-* entry[+].fullUrl = "urn:uuid:cccccccc-2222-0000-0000-000000000001"
-* entry[=].resource = cccccccc-2222-0000-0000-000000000001
 
 
 
