@@ -24,10 +24,28 @@ Usage: #definition
 * occurredDateTime = "2022-07-27"
 * reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
 * reason.text = "Initial ValueSet as per the C2S layout"
-* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
-* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
-* agent.who.display = "John Moehrke"
+* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#CREATE
+* agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
+* agent[=].who.display = "John Moehrke"
+* agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#verifier
+* agent[=].who.display = "John F. Moehrke"
 
+
+Instance:   SlsSensitive-update-history
+InstanceOf: Provenance
+Title: "touchup of ValueSets PSY, ETH, SEX, and HIV"
+Usage: #definition
+* target[+] = Reference(ValueSet/SlsSensitivePSY)
+* target[+] = Reference(ValueSet/SlsSensitiveETH)
+* target[+] = Reference(ValueSet/SlsSensitiveSEX)
+* target[+] = Reference(ValueSet/SlsSensitiveHIV)
+* recorded = "2023-01-31T13:00:00.0000Z"
+* occurredDateTime = "2023-01-31"
+* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
+* reason.text = "Administrative touchup to add history"
+* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
+* agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
+* agent[=].who.display = "John Moehrke"
 
 
 
