@@ -48,6 +48,22 @@ Usage: #definition
 * agent[=].who.display = "John Moehrke"
 
 
+Instance:   SlsSensitive-split-history
+InstanceOf: Provenance
+Title: "Split ETH into ETHUD and OPIOIDUD"
+Usage: #definition
+* target[+] = Reference(ValueSet/SlsSensitiveETHUD)
+* target[+] = Reference(ValueSet/SlsSensitiveOPIOIDUD)
+* recorded = "2023-02-01T13:00:00.0000Z"
+* occurredDateTime = "2023-02-01"
+* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
+* reason.text = "Split the ETH into ETHUD (only alcohol) and OPIOIDUD (only drug)"
+* activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#CREATE
+* agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
+* agent[=].who.display = "John Moehrke"
+* entity[+].what = Reference(ValueSet/SlsSensitiveETH)
+* entity[=].role = #source
+
 
 
 
@@ -197,6 +213,134 @@ ETH - substance abuse information sensitivity (alcohol or drug-abuse information
 // SAMSHA Test C2S Alcohol Use Disorders
 * codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.65 // SNOMED-CT
 
+
+
+ValueSet: SlsSensitiveETHUD
+Title: "clinical codes that indicate ETHUD"
+Description: """
+codes that when found in data would indicate the data is likely ETHUD related
+
+ETHUD - alcohol abuse information sensitivity (alcohol abuse information)
+
+* **SAMSHA  C2S Alcohol Use Disorders**
+  * ValueSet 2.16.840.1.113762.1.4.1142.1 // SNOMEDCD
+  * ValueSet 2.16.840.1.113762.1.4.1142.2 // ICD9CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.3 // RXNORM
+  * ValueSet 2.16.840.1.113762.1.4.1142.4 // ICD10CD
+  * ValueSet 2.16.840.1.113762.1.4.1142.5 // LOINC
+* **SAMSHA Test C2S Alcohol Use Disorders**
+  * ValueSet 2.16.840.1.113762.1.4.1142.65 // SNOMED-CT
+"""
+* ^experimental = false
+// SAMSHA  C2S Alcohol Use Disorders
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.1 // SNOMEDCD
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.2 // ICD9CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.3 // RXNORM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.4 // ICD10CD
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.5 // LOINC
+// SAMSHA Test C2S Alcohol Use Disorders
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.65 // SNOMED-CT
+
+
+
+
+ValueSet: SlsSensitiveOPIOIDUD
+Title: "clinical codes that indicate OPIOIDUD"
+Description: """
+codes that when found in data would indicate the data is likely OPIOIDUD related
+
+OPIOIDUD - Opioid substance abuse information sensitivity (drug-abuse information)
+
+* **SAMSHA C2S Amphetamine Use Disorders**
+  * ValueSet 2.16.840.1.113762.1.4.1142.10 // RXNORM
+  * ValueSet 2.16.840.1.113762.1.4.1142.11 // SNOMED-CT
+  * ValueSet 2.16.840.1.113762.1.4.1142.6 // HCPCS
+  * ValueSet 2.16.840.1.113762.1.4.1142.7 // ICD10CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.8 // ICD9CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.9 // LOINC
+* **SAMSHA C2S Cannabis Use Disorders**
+  * ValueSet 2.16.840.1.113762.1.4.1142.12 // ICD9CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.13 // ICD10CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.14 // LOINC
+  * ValueSet 2.16.840.1.113762.1.4.1142.15 // SNOMED-CT
+* **SAMSHA C2S Cocaine Use Disorder**
+  * ValueSet 2.16.840.1.113762.1.4.1142.16 // ICD10CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.17 // ICD9CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.18 // SNOMED-CT
+* **SAMSHA C2S Hallucinogens**
+  * ValueSet 2.16.840.1.113762.1.4.1142.19 // ICD10CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.20 // ICD9CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.21 // LOINC
+  * ValueSet 2.16.840.1.113762.1.4.1142.22 // SNOMED-CT
+* **SAMSHA C2S Inhalants**
+  * ValueSet 2.16.840.1.113762.1.4.1142.28 // ICD10CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.29 // ICD9CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.30 // SNOMED-CT
+* **SAMSHA C2S Opioids**
+  * ValueSet 2.16.840.1.113762.1.4.1142.38 // ICD10CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.39 // ICD9CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.40 // LOINC
+  * ValueSet 2.16.840.1.113762.1.4.1142.41 // RXNORM
+  * ValueSet 2.16.840.1.113762.1.4.1142.42 // SNOMED-CT
+  * ValueSet 2.16.840.1.113762.1.4.1142.59 // CPT
+* **SAMSHA C2S Other Psychoactive Substance Use Disorder**
+  * ValueSet 2.16.840.1.113762.1.4.1142.43 // SNOMED-CT
+  * ValueSet 2.16.840.1.113762.1.4.1142.44 // ICD9CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.45 // ICD10CM
+* **SAMSHA C2S Sedative Hypnotic, or anxiolytic related disorders**
+  * ValueSet 2.16.840.1.113762.1.4.1142.46 // SNOMED-CT
+  * ValueSet 2.16.840.1.113762.1.4.1142.47 // ICD10CM
+  * ValueSet 2.16.840.1.113762.1.4.1142.48 // ICD9CM
+* **SAMSHA C2S Substance use Information Sensitivity**
+  * ValueSet 2.16.840.1.113762.1.4.1142.55 // HCPCS
+  * ValueSet 2.16.840.1.113762.1.4.1142.56 // LOINC
+  * ValueSet 2.16.840.1.113762.1.4.1142.57 // RXNORM
+"""
+* ^experimental = false
+// SAMSHA C2S Amphetamine Use Disorders
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.10 // RXNORM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.11 // SNOMED-CT
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.6 // HCPCS
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.7 // ICD10CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.8 // ICD9CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.9 // LOINC
+// SAMSHA C2S Cannabis Use Disorders
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.12 // ICD9CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.13 // ICD10CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.14 // LOINC
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.15 // SNOMED-CT
+// SAMSHA C2S Cocaine Use Disorder
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.16 // ICD10CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.17 // ICD9CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.18 // SNOMED-CT
+// SAMSHA C2S Hallucinogens
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.19 // ICD10CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.20 // ICD9CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.21 // LOINC
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.22 // SNOMED-CT
+// SAMSHA C2S Inhalants
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.28 // ICD10CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.29 // ICD9CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.30 // SNOMED-CT
+// SAMSHA C2S Opioids
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.38 // ICD10CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.39 // ICD9CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.40 // LOINC
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.41 // RXNORM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.42 // SNOMED-CT
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.59 // CPT
+// SAMSHA C2S Other Psychoactive Substance Use Disorder
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.43 // SNOMED-CT
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.44 // ICD9CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.45 // ICD10CM
+// SAMSHA C2S Sedative Hypnotic, or anxiolytic related disorders
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.46 // SNOMED-CT
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.47 // ICD10CM
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.48 // ICD9CM
+// SAMSHA C2S Substance use Information Sensitivity
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.55 // HCPCS
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.56 // LOINC
+* codes from valueset http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1142.57 // RXNORM
 
 
 

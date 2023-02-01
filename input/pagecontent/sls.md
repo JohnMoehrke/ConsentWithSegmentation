@@ -52,7 +52,9 @@ This solution does not require that the EHR database be updated to support taggi
 
 One way to understand a very basic SLS is that it looks for clinical codes in the data. It might do this using ValueSets, but likely would need to do this in a more performing way. 
 
-- [Set of codes that indicate ETH](ValueSet-SlsSensitiveETH.html)
+- [Set of codes that indicate ETH (alcohol and drug)](ValueSet-SlsSensitiveETH.html)
+  - [Set of codes that indicate ETHUD (alcohol)](ValueSet-SlsSensitiveETHUD.html)
+  - [Set of codes that indicate OPIOIDUD (drugs)](ValueSet-SlsSensitiveOPIOIDUD.html)
 - [Set of codes that indicate PSY](ValueSet-SlsSensitivePSY.html)
 - [Set of codes that indicate SEX](ValueSet-SlsSensitiveSEX.html)
 - [Set of codes that indicate HIV](ValueSet-SlsSensitiveHIV.html)
