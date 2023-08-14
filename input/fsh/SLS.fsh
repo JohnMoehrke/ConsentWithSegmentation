@@ -22,8 +22,8 @@ Usage: #definition
 * target[+] = Reference(ValueSet/SlsSensitiveHIV)
 * recorded = "2023-01-30T13:00:00.0000Z"
 * occurredDateTime = "2022-07-27"
-* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
-* reason.text = "Initial ValueSet as per the C2S layout"
+* authorization.concept = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
+* authorization.concept.text = "Initial ValueSet as per the C2S layout"
 * activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#CREATE
 * agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
 * agent[=].who.display = "John Moehrke"
@@ -41,8 +41,8 @@ Usage: #definition
 * target[+] = Reference(ValueSet/SlsSensitiveHIV)
 * recorded = "2023-01-31T13:00:00.0000Z"
 * occurredDateTime = "2023-01-31"
-* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
-* reason.text = "Administrative touchup to add history"
+* authorization.concept = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
+* authorization.concept.text = "Administrative touchup to add history"
 * activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
 * agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
 * agent[=].who.display = "John Moehrke"
@@ -56,8 +56,8 @@ Usage: #definition
 * target[+] = Reference(ValueSet/SlsSensitiveOPIOIDUD)
 * recorded = "2023-02-01T13:00:00.0000Z"
 * occurredDateTime = "2023-02-01"
-* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
-* reason.text = "Split the ETH into ETHUD (only alcohol) and OPIOIDUD (only drug)"
+* authorization.concept = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
+* authorization.concept.text = "Split the ETH into ETHUD (only alcohol) and OPIOIDUD (only drug)"
 * activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#CREATE
 * agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
 * agent[=].who.display = "John Moehrke"

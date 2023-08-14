@@ -9,7 +9,8 @@ title: "JohnMoehrke Consent with Segmented data"
 description: "This Implementation Guide addresses privacy Consent resource with segmented data."
 status: draft
 version: 0.1.0-current
-fhirVersion: 4.3.0
+fhirVersion: 5.0.0
+#fhirVersion: 4.3.0
 #fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: ci-build
@@ -61,6 +62,7 @@ menu:
   SLS: sls.html
   Maturity: maturity.html
   Informative: informative.html
+  TestPlan: testplan.html
   Artifacts: artifacts.html
 
 # marking pages as informative, causes all unmarked to be marked informative. So if you mark one page, then you need to mark them all. https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/structuredefinition-standards-status
@@ -95,6 +97,13 @@ pages:
     extension: 
       - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
         valueCode: informative
+  testplan.md:
+    title: Test Plan
+    generation: markdown
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: informative
+
 
 
 

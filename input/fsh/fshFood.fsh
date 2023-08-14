@@ -15,8 +15,8 @@ Usage: #inline
 * target = Reference(Organization/ex-organization)
 * recorded = "2022-07-27T13:00:00.0000Z"
 * occurredDateTime = "2022-07-27"
-* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
-* reason.text = "Initial example"
+* authorization.concept.coding = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
+* authorization.concept.text = "Initial example"
 * activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
 * agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
 * agent.who.display = "John Moehrke"
@@ -101,7 +101,8 @@ Usage: #example
 * meta.security = http://terminology.hl7.org/CodeSystem/v3-ActReason#HTEST
 * active = true
 * patient = Reference(Patient/ex-patient)
-* relationship = 	http://terminology.hl7.org/CodeSystem/v3-RoleCode#SON "natural son"
+* relationship[+] = 	http://terminology.hl7.org/CodeSystem/v3-RoleClass#DEPEN
+* relationship[+] = 	http://terminology.hl7.org/CodeSystem/v3-RoleCode#SON "natural son"
 * name[+].use = #official
 * name[=].family = "Schmidt"
 * name[=].given[+] = "John"
@@ -118,7 +119,8 @@ Usage: #example
 * meta.security = http://terminology.hl7.org/CodeSystem/v3-ActReason#HTEST
 * active = true
 * patient = Reference(Patient/ex-patient)
-* relationship = 	http://terminology.hl7.org/CodeSystem/v3-RoleCode#SON "natural son"
+* relationship[+] = 	http://terminology.hl7.org/CodeSystem/v3-RoleClass#DEPEN
+* relationship[+] = 	http://terminology.hl7.org/CodeSystem/v3-RoleCode#SON "natural son"
 * name[+].use = #official
 * name[=].family = "Schmidt"
 * name[=].given[+] = "John"
@@ -130,12 +132,18 @@ Usage: #example
 
 Profile: ConsentTreat
 Parent: Consent
-Title: "Consent to treat"
+Title: "Consent to allow use for treatment"
 Description: "Some useful"
 * status = #active
-* scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy
-* category = http://loinc.org#59284-0 "Consent"
-* patient 1..1
+//* scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy
+* category ^slicing.discriminator.type = #value
+* category ^slicing.discriminator.path = "$this"
+* category ^slicing.rules = #open // allow other codes
+* category 1..
+* category contains isConsent 1..1 
+* category[isConsent] = http://loinc.org#59284-0 "Consent"
+* subject 1..1
+* subject only Reference(Patient)
 
 
 Instance:   cccccccc-2222-0000-0000-000000000011
@@ -145,8 +153,8 @@ Usage: #inline
 * target = Reference(StructureDefinition/ConsentTreat)
 * recorded = "2022-07-27T13:00:00.0000Z"
 * occurredDateTime = "2022-07-27"
-* reason = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
-* reason.text = "Initial example"
+* authorization.concept = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
+* authorization.concept.text = "Initial example"
 * activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
 * agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
 * agent.who.display = "John Moehrke"
@@ -168,15 +176,15 @@ Description: "Consent for purposes of use involved in treatment: Treatment/Payme
 Usage: #example
 * meta.security = http://terminology.hl7.org/CodeSystem/v3-ActReason#HTEST
 * status = #active
-* scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy
-* category[+] = http://loinc.org#59284-0 "Consent"
-* patient = Reference(Patient/ex-patient)
-* dateTime = "2022-06-13"
-* performer = Reference(Patient/ex-patient)
-* organization = Reference(Organization/ex-organization)
+//* scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy
+* category[isConsent] = http://loinc.org#59284-0 "Consent"
+* subject = Reference(Patient/ex-patient)
+* date = "2022-06-13"
+* grantor = Reference(Patient/ex-patient)
+* grantee = Reference(Organization/ex-organization)
 * sourceReference = Reference(DocumentReference/ex-documentreference)
-* policy.uri = "http://example.org/policies/basePrivacyConsentPolicy.xacml"
-* provision.type = #permit
+* policyBasis.url = "http://example.org/policies/basePrivacyConsentPolicy.xacml"
+* decision = #permit
 * provision.purpose[+] = http://terminology.hl7.org/CodeSystem/v3-ActReason#TREAT
 * provision.purpose[+] = http://terminology.hl7.org/CodeSystem/v3-ActReason#HPAYMT
 * provision.purpose[+] = http://terminology.hl7.org/CodeSystem/v3-ActReason#HOPERAT
@@ -189,30 +197,30 @@ Description: "Consent justifying RelatedPerson and authorizing access by that Re
 Usage: #example
 * meta.security = http://terminology.hl7.org/CodeSystem/v3-ActReason#HTEST
 * status = #active
-* scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy
+//* scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy
 * category[+] = http://loinc.org#64292-6 "Release of information consent"
 * category[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#IDSCL
-* patient = Reference(Patient/ex-patient)
-* dateTime = "2022-06-13"
-* performer = Reference(Patient/ex-patient)
-* organization = Reference(Organization/ex-organization)
+* subject = Reference(Patient/ex-patient)
+* date = "2022-06-13"
+* grantor = Reference(Patient/ex-patient)
+* grantee = Reference(Organization/ex-organization)
 * sourceReference = Reference(DocumentReference/ex-documentreference)
-* policy.uri = "http://example.org/policies/basePrivacyConsentPolicy.xacml"
-* provision.type = #deny
+* policyBasis.url = "http://example.org/policies/basePrivacyConsentPolicy.xacml"
+* decision = #deny
 * provision.purpose[+] = http://terminology.hl7.org/CodeSystem/v3-ActReason#FAMRQT
-* provision.provision[+].type = #permit
-* provision.provision[=].actor.reference = Reference(RelatedPerson/ex-son)
+//* provision.provision[+].type = #permit
+* provision.provision[+].actor.reference = Reference(RelatedPerson/ex-son)
 * provision.provision[=].actor.role = http://terminology.hl7.org/CodeSystem/v3-RoleCode#DELEGATEE
 * provision.provision[=].purpose = http://terminology.hl7.org/CodeSystem/v3-ActReason#FAMRQT
 * provision.provision[=].securityLabel = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#N
-* provision.provision[+].type = #permit
-* provision.provision[=].actor.reference = Reference(RelatedPerson/ex-son)
+//* provision.provision[+].type = #permit
+* provision.provision[+].actor.reference = Reference(RelatedPerson/ex-son)
 * provision.provision[=].actor.role = http://terminology.hl7.org/CodeSystem/v3-RoleCode#DELEGATEE
 * provision.provision[=].purpose = http://terminology.hl7.org/CodeSystem/v3-ActReason#FAMRQT
 * provision.provision[=].securityLabel[+] = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#R
 * provision.provision[=].securityLabel[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#PSY
-* provision.provision[+].type = #permit
-* provision.provision[=].actor.reference = Reference(RelatedPerson/ex-son2)
+//* provision.provision[+].type = #permit
+* provision.provision[+].actor.reference = Reference(RelatedPerson/ex-son2)
 * provision.provision[=].actor.role = http://terminology.hl7.org/CodeSystem/v3-RoleCode#DELEGATEE
 * provision.provision[=].purpose = http://terminology.hl7.org/CodeSystem/v3-ActReason#FAMRQT
 * provision.provision[=].securityLabel = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#N
@@ -261,3 +269,22 @@ holding typical health values
 
 
 
+Instance: theTestPlan
+InstanceOf: TestPlan
+Title: "The test plan for the IG"
+Description: "Something good"
+* status = #active
+* scope[+] = Reference(ConsentTreat)
+* testTools = "some good tool"
+* testCase[+].sequence = 1
+* testCase[=].scope = Reference(ex-consent-treat)
+* testCase[=].testRun.narrative = "go for it"
+
+
+Instance: aTestScript
+InstanceOf: TestScript 
+Title: "A Test Script"
+Description: "Some good thing"
+* name = "RudimentaryConsetTreatTest"
+* status = #active
+* scope.artifact = Canonical(ConsentTreat)
