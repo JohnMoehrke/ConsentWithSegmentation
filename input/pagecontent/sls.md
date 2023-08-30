@@ -46,7 +46,7 @@ Alternative is that the data are temporarly tagged prior to use, thus the sensit
 </div>
 <br clear="all">
 
-This solution does not require that the EHR database be updated to support tagging of data, but may incure a peformance impact on data use.
+This solution does not require that the EHR database be updated to support tagging of data, but may see a performance impact on data use.
 
 ### Example ValueSets
 
@@ -56,7 +56,7 @@ One way to understand a very basic SLS is that it looks for clinical codes in th
   - [Set of codes that indicate ETHUD (alcohol)](ValueSet-SlsSensitiveETHUD.html)
   - [Set of codes that indicate OPIOIDUD (drugs)](ValueSet-SlsSensitiveOPIOIDUD.html)
 - [Set of codes that indicate PSY](ValueSet-SlsSensitivePSY.html)
-- [Set of codes that indicate SEX](ValueSet-SlsSensitiveSEX.html)
+- [Set of codes that indicate SDV](ValueSet-SlsSensitiveSDV.html)
 - [Set of codes that indicate HIV](ValueSet-SlsSensitiveHIV.html)
 
 
