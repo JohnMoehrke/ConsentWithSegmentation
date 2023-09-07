@@ -274,6 +274,7 @@ InstanceOf: TestPlan
 Title: "The test plan for the IG"
 Description: "Something good"
 * status = #active
+// todo: don't know what to put in scope
 * scope[+] = Reference(ConsentTreat)
 * testTools = "some good tool"
 * description = "Test user access against various kinds of Consent"
@@ -281,6 +282,8 @@ Description: "Something good"
 * testCase[=].scope = Reference(ex-consent-treat)
 * testCase[=].testRun.script.language.coding =  urn:ietf:bcp:13#text/x-gherkin
 * testCase[=].testRun.script.language.text = "Gherkin"
+// todo: must escape the `<` and `>` as IG publisher doesn't like these in strings
+// todo: must replicate Gherkin in both sourceString (computable script), and narrative (human rendering); as Gherkin is both narrative and script
 * testCase[=].testRun.script.sourceString = """
 Feature: Basic Consent 
 
@@ -309,6 +312,7 @@ Examples:
   | deny    | ~any~   | User1 | deny   |
   | deny    | ~any~   | User2 | deny   |
 """
+// todo: must escape the `<` and `>` as IG publisher doesn't like these in markdown
 * testCase[=].testRun.narrative = """
 ```Gherkin
 Feature: Basic Consent 

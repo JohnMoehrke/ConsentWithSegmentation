@@ -25,6 +25,8 @@ The IG [Test Plan](TestPlan-theTestPlan.html)
 
 ### Basic Consent
 
+TODO: unfortunate need to replicate the Gherkin in markdown for the human to see, and also need a downloadable feature file.
+
 ```Gherkin
 Feature: Basic Consent 
 
