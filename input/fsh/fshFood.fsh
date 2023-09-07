@@ -280,6 +280,7 @@ Description: "Something good"
 * testCase[+].sequence = 1
 * testCase[=].scope = Reference(ex-consent-treat)
 * testCase[=].testRun.narrative = """
+```Gherkin
 Feature: Basic Consent 
 
 Background: purpose of use is allowed
@@ -306,7 +307,7 @@ Examples:
   | permit  | ~any~   | User2 | permit |
   | deny    | ~any~   | User1 | deny   |
   | deny    | ~any~   | User2 | deny   |
-
+```
 """
 * testCase[+].sequence = 2
 * testCase[=].scope = Reference(ex-consent-treat)
@@ -321,6 +322,7 @@ Feature: todo
 * testCase[+].sequence = 4
 * testCase[=].scope = Reference(ex-consent-treat)
 * testCase[=].testRun.narrative = """
+```Gherkin
 Feature: Consent authorize activity for non-sensitive data
 
 Scenario: User requests access and is permitted normal data due to Consent 
@@ -335,6 +337,8 @@ Scenario: User requests access and is permitted normal data due to Consent
     And SLS inspects the Search Response bundle and tags sensitive data (R-ConfidentialityCode)
     And AccessEnforcement removes from the Search Response Bundle the data tagged as sensitive (R-ConfidentalityCode)
     And Only non-sensitive data is given
+
+```
 """
 
 
