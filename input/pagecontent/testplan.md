@@ -55,6 +55,8 @@ Examples:
 
 ```
 
+See the [give-consent feature file](give-consent.feature)
+
 ### Intermediate Consent
 
 ```Gherkin
