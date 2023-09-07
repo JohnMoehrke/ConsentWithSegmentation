@@ -288,12 +288,12 @@ Background: purpose of use is allowed
 Scenario: User requests access and is authorized due to basic consent 
 
 Scenario Outline: basic
-  Given @ConsentRecorder has or has not recorded a <Consent>
-    And default rule is <default>
-  When <user> uses @UserApp to request access control token
+  Given @ConsentRecorder has or has not recorded a \<Consent\>
+    And default rule is \<default\>
+  When \<user\> uses @UserApp to request access control token
     And @AccessControlDecider actor consults the @ConsentRepository
-    And <Consent> 
-  Then Authorization <auth>
+    And \<Consent\> 
+  Then Authorization \<auth\>
 
 Examples:
 

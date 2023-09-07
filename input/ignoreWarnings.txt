@@ -5,3 +5,6 @@ Reference to deprecated item http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 
 # RelatedPerson relationship no longer has natural relationships in it.
 None of the codings provided are in the value set 'Patient Relationship Type' (http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype|5.0.0), and a coding is recommended to come from this value set) (codes = http://terminology.hl7.org/CodeSystem/v3-RoleCode#SON)
+
+# no worry
+Reference to draft item http://hl7.org/fhir/standards-status|1.0.0
