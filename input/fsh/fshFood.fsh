@@ -279,6 +279,36 @@ Description: "Something good"
 * description = "Test user access against various kinds of Consent"
 * testCase[+].sequence = 1
 * testCase[=].scope = Reference(ex-consent-treat)
+* testCase[=].testRun.script.language.coding =  urn:ietf:bcp:13#text/x-gherkin
+* testCase[=].testRun.script.language.text = "Gherkin"
+* testCase[=].testRun.script.sourceString = """
+Feature: Basic Consent 
+
+Background: purpose of use is allowed
+
+Scenario: User requests access and is authorized due to basic consent 
+
+Scenario Outline: basic
+  Given @ConsentRecorder has or has not recorded a \<Consent\>
+    And default rule is \<default\>
+  When \<user\> uses @UserApp to request access control token
+    And @AccessControlDecider actor consults the @ConsentRepository
+    And \<Consent\> 
+  Then Authorization \<auth\>
+
+Examples:
+
+  | Consent | default | User  | auth   |
+  |---------|---------|-------|--------|
+  | none    | deny    | User1 | deny   |
+  | none    | deny    | User2 | deny   |
+  | none    | permit  | User1 | permit |
+  | none    | permit  | User2 | permit |
+  | permit  | ~any~   | User1 | permit |
+  | permit  | ~any~   | User2 | permit |
+  | deny    | ~any~   | User1 | deny   |
+  | deny    | ~any~   | User2 | deny   |
+"""
 * testCase[=].testRun.narrative = """
 ```Gherkin
 Feature: Basic Consent 
@@ -321,6 +351,24 @@ Feature: todo
 """
 * testCase[+].sequence = 4
 * testCase[=].scope = Reference(ex-consent-treat)
+* testCase[=].testRun.script.language.coding =  urn:ietf:bcp:13#text/x-gherkin
+* testCase[=].testRun.script.language.text = "Gherkin"
+* testCase[=].testRun.script.sourceString = """
+Feature: Consent authorize activity for non-sensitive data
+
+Scenario: User requests access and is permitted normal data due to Consent 
+  Given ConsentRecorder records Consent
+    And The Consent given is for the User
+    And The Consent given restricts data for this user to non-sensitive data
+  When User uses UserApp to request data
+    And AccessControl actor consults the ConsentRepository
+    And Consent is found, 
+    And Consent found does authorize this user only for non-sensitive data
+  Then Only non-sensitive data can be given
+    And SLS inspects the Search Response bundle and tags sensitive data (R-ConfidentialityCode)
+    And AccessEnforcement removes from the Search Response Bundle the data tagged as sensitive (R-ConfidentalityCode)
+    And Only non-sensitive data is given
+"""
 * testCase[=].testRun.narrative = """
 ```Gherkin
 Feature: Consent authorize activity for non-sensitive data
@@ -337,7 +385,6 @@ Scenario: User requests access and is permitted normal data due to Consent
     And SLS inspects the Search Response bundle and tags sensitive data (R-ConfidentialityCode)
     And AccessEnforcement removes from the Search Response Bundle the data tagged as sensitive (R-ConfidentalityCode)
     And Only non-sensitive data is given
-
 ```
 """
 
