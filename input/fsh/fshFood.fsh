@@ -132,6 +132,7 @@ Usage: #example
 
 Profile: ConsentTreat
 Parent: Consent
+Id: johnmoehrke.consentwithsegmentation.consenttreat
 Title: "Consent to allow use for treatment"
 Description: "Some useful"
 * status = #active
@@ -150,7 +151,7 @@ Instance:   cccccccc-2222-0000-0000-000000000011
 InstanceOf: Provenance
 Title: "history entry ConsentTreat profile 1"
 Usage: #inline
-* target = Reference(StructureDefinition/ConsentTreat)
+* target = Reference(ConsentTreat)
 * recorded = "2022-07-27T13:00:00.0000Z"
 * occurredDateTime = "2022-07-27"
 * authorization.concept = http://terminology.hl7.org/CodeSystem/v3-ActReason#METAMGT
