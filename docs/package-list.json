@@ -1,6 +1,6 @@
 {
- "package-id" : "johnmoehrke.ConsentWithSegmentation",
- "title" : "Example of slicing",
+ "package-id" : "johnmoehrke.consentwithsegmentation",
+ "title" : "Example of Consent profile IG",
  "canonical" : "http://johnmoehrke.github.io/ConsentWithSegmentation",
  "introduction" : "## blah blah",
  "category" : "EHR Access",
