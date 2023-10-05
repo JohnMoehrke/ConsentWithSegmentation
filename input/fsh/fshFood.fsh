@@ -1,3 +1,4 @@
+Alias: $fmm = http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
 
 Instance: ex-organization
 InstanceOf: Organization
@@ -135,6 +136,7 @@ Parent: Consent
 Id: johnmoehrke.consentwithsegmentation.consenttreat
 Title: "Consent to allow use for treatment"
 Description: "Some useful"
+* ^extension[$fmm].valueInteger = 3
 * status = #active
 //* scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy
 * category ^slicing.discriminator.type = #value
