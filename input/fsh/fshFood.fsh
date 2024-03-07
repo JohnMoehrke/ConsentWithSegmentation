@@ -270,5 +270,3 @@ holding typical health values
 // no comments in this one as comments is only in DSTU2
 * note.text = "a bit low, no indicated method, no indicated eating"
 
-
-
