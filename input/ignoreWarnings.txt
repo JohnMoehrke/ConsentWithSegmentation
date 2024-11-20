@@ -4,7 +4,7 @@
 Reference to deprecated item http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 
 # RelatedPerson relationship no longer has natural relationships in it.
-%None of the codings provided are in the value set 'Patient Relationship Type' (http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype|5.0.0), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v3-RoleCode#SON
+%None of the codings provided are in the value set 'Patient Relationship Type' (http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype|5.0.0), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v3-RoleCode#SON)
 
 # no worry
 MSG_DEPRECATED
@@ -16,4 +16,4 @@ WARNING: Observation/ex-bloodSugarB-0: Observation: Best Practice Recommendation
 
 # these are okay, unknown, but okay
 %A definition for the value Set 'http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html' could not be found
-
+Unable to check whether the code is in the value set 'http://hl7.org/fhir/ValueSet/participation-role-type|5.0.0' because the value set http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html was not found
