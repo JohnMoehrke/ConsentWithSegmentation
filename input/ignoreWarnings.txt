@@ -1,13 +1,26 @@
 == Suppressed Messages ==
 
-# Grahame said we can ignore these for now 
-Reference to deprecated item http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
+# understood
+This IG is version 5.0.0, while the IG 'us.nlm.vsac' is from version 4.0.1
 
-# RelatedPerson relationship no longer has natural relationships in it.
+# RelatedPerson relationship no longer has natural relationships in it. https://jira.hl7.org/browse/FHIR-48877
 %None of the codings provided are in the value set 'Patient Relationship Type' (http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype|5.0.0), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v3-RoleCode#SON)
 
 # no worry
 MSG_DEPRECATED
+
+# no worry
+The definition for the element 'Consent.category' binds to the value set 'http://hl7.org/fhir/ValueSet/consent-category' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Consent.regulatoryBasis' binds to the value set 'http://hl7.org/fhir/ValueSet/consent-policy' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Consent.verification.verificationType' binds to the value set 'http://hl7.org/fhir/ValueSet/consent-verification' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Consent.decision' binds to the value set 'http://hl7.org/fhir/ValueSet/consent-provision-type|5.0.0' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Consent.provision.actor.role' binds to the value set 'http://hl7.org/fhir/ValueSet/participation-role-type' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Consent.provision.action' binds to the value set 'http://hl7.org/fhir/ValueSet/consent-action' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Consent.provision.securityLabel' binds to the value set 'http://hl7.org/fhir/ValueSet/security-label-examples' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Consent.provision.documentType' binds to the value set 'http://hl7.org/fhir/ValueSet/consent-content-class' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Consent.provision.resourceType' binds to the value set 'http://hl7.org/fhir/ValueSet/resource-types' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Consent.provision.code' binds to the value set 'http://hl7.org/fhir/ValueSet/consent-content-code' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Consent.provision.data.meaning' binds to the value set 'http://hl7.org/fhir/ValueSet/consent-data-meaning|5.0.0' which is experimental, but this structure is not labeled as experimental
 
 # warnings that are not critical to the reason these examples exist
 WARNING: Observation/ex-ObservationAlcoholUse: Observation.value.ofType(Quantity): UCUM Codes that contain human readable annotations like {wine glasses} can be misleading (e.g. they are ignored when comparing units). Best Practice is not to depend on annotations in the UCUM code, so this usage should be checked, and the Quantity.unit SHOULD contain the annotation
@@ -17,3 +30,6 @@ WARNING: Observation/ex-bloodSugarB-0: Observation: Best Practice Recommendation
 # these are okay, unknown, but okay
 %A definition for the value Set 'http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html' could not be found
 Unable to check whether the code is in the value set 'http://hl7.org/fhir/ValueSet/participation-role-type|5.0.0' because the value set http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html was not found
+
+# unfortunate ig publisher limit
+The value set expansion is too large, and only a subset has been displayed
