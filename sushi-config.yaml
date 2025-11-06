@@ -30,6 +30,10 @@ extension:
     valueCode: draft
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
     valueInteger: 0
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm-support
+    valueMarkdown: |
+      This is a work in progress, and not yet ready for production use.
+      It is intended to be used for testing and development purposes only.
 dependencies:
   us.nlm.vsac: 
     version: 0.9.0
