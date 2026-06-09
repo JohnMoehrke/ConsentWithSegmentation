@@ -1,0 +1,61 @@
+@startuml
+top to bottom direction
+
+class Regulation <<concept>> #90EE90 {
+  e.g., HIPAA, 42 CFR Part 2, GDPR
+  __
+  Lorem ipsum dolor sit amet()
+}
+
+class OrganizationalPolicy <<policy>> #90EE90 {
+  e.g., privacy policy, data use agreement
+  __
+  Consectetur adipiscing elit()
+}
+
+class PolicyAlternative <<alternatives>> #90EE90 {
+  e.g., opt-in, opt-out, quilted
+  __
+  Sed do eiusmod tempor incididunt()
+}
+
+together {
+  entity FHIR_Consent <<Consent>> {
+    +status
+    +scope
+    +category
+    +dateTime
+    +subject reference Patient
+    +policyBasis codeableConcept regulation
+    +policy.url url organizational policy | alternative
+    +sourceReference ceremony evidence
+    +provisions patient specific adds/removes
+        -permit/deny
+        -data category
+        -actor characteristics
+        -activities
+  }
+  
+  entity CeremonyEvidence <<DocumentReference>> {
+    e.g., signed consent form
+  }
+  
+  entity DataSubject <<Patient>> {
+  }
+}
+
+protocol DataUseDecision <<decision>> #FF6B6B {
+  e.g., permit, deny
+}
+
+Regulation <-- FHIR_Consent : Consent.policyBasis
+Regulation <-down- OrganizationalPolicy : implements
+OrganizationalPolicy <-down- FHIR_Consent : Consent.policy.url
+OrganizationalPolicy <-down- PolicyAlternative : alternatives
+PolicyAlternative <-down- FHIR_Consent : Consent.policy.url
+DataSubject <-right- FHIR_Consent : Consent.subject 1..1
+DataSubject -down-> CeremonyEvidence 
+CeremonyEvidence <-right- FHIR_Consent : Consent.sourceReference[]
+FHIR_Consent -down-> DataUseDecision : evaluated 
+
+@enduml
